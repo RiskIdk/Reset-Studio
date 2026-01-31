@@ -1,6 +1,4 @@
-/* ==================== CONTACTO.CSS (ESTILO LIGHT) ==================== */
 
-/* Aseguramos la fuente SamsungOne */
 @font-face {
     font-family: 'SamsungOne';
     src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
@@ -17,13 +15,13 @@
     font-style: normal;
 }
 
-/* Forzar fondo blanco y texto oscuro para esta página */
+
 body {
     background-color: #FFFFFF !important;
     color: #1A1A1A !important;
 }
 
-/* ==================== LAYOUT PRINCIPAL ==================== */
+
 .contact-section {
     padding: 60px 0 100px;
     max-width: 1100px; /* Ancho contenido para que se parezca a la foto */
@@ -32,27 +30,24 @@ body {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 450px 1fr; /* Columna izq fija o proporcional, der flexible */
+    grid-template-columns: 450px 1fr; 
     gap: 80px;
     align-items: start;
 }
 
-/* Columna Izquierda: El recuadro gris (o mapa/foto) */
+
 .contact-visual-box {
-    background-color: #D9D9D9; /* Gris de la referencia */
+
     width: 100%;
-    height: 700px; /* Altura fija para igualar al formulario largo */
-    /* Si pones una imagen, usa estas propiedades: */
-    /* background-image: url('../img/tu-foto.jpg'); */
-    /* background-size: cover; */
+    height: 700px; 
 }
 
 .contact-visual-box img {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     object-fit: cover;
-    display: block; /* Si usas etiqueta img */
-    opacity: 0; /* Si quieres que sea solo gris, quita la img o deja esto */
+    display: block; 
+    
 }
 
 /* ==================== FORMULARIO ==================== */
@@ -61,7 +56,7 @@ body {
 }
 
 .form-title {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'SamsungOne';
     font-size: 38px;
     color: #1a1a3e; /* Azul oscuro casi negro */
     margin-bottom: 35px;
@@ -81,7 +76,7 @@ body {
 }
 
 .form-group label {
-    font-family: 'Libre Baskerville', serif; /* En la foto parece serif o una slab ligera */
+    font-family: 'SamsungOne';
     font-size: 14px;
     color: #333;
     font-weight: 400;
@@ -133,7 +128,7 @@ body {
 }
 
 .form-checkbox label {
-    font-family: 'Courier New', monospace; /* Tipo "máquina de escribir" de la foto */
+    font-family: 'SamsungOne';
     font-size: 11px;
     color: #666;
     letter-spacing: -0.5px;
@@ -169,7 +164,7 @@ body {
     font-size: 12px;
 }
 
-/* ==================== RESPONSIVE ==================== */
+
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
@@ -178,7 +173,7 @@ body {
     
     .contact-visual-box {
         height: 300px;
-        order: -1; /* Poner arriba en móvil si quieres, o quitar para dejar abajo */
+        order: -1; 
     }
     
     .container {

@@ -25,8 +25,8 @@
 }
 
 .brand-hero-image-wrapper {
-    margin-bottom: 60px;
-    border-radius: 30px;
+    margin-bottom: 100px;
+    border-radius: 100px;
     overflow: hidden;
     width: 100%;
 }
@@ -176,88 +176,112 @@
 .delay-2 { transition-delay: 0.4s; }
 .frespi-hero {
     background-color: #EADAEB;
-    padding: 60px;
     border-radius: 40px;
+    width: 100%;
+    margin-bottom: 80px;
+    padding: 0; 
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 60px;
 }
 
 .frespi-hero img {
-    max-width: 60%;
-    height: auto;
-}
-
-.frespi-products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    align-items: end;
-    margin-bottom: 50px;
-}
-
-.frespi-item {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.frespi-item img {
+    
     width: 100%;
+    max-width: 100%;
     height: auto;
-    object-fit: contain;
-    display: block;
+    display: block; 
 }
 
-.frespi-stickers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1000px;
+.frespi-collage-container {
+    width: 100%;
+    max-width: 1100px; 
     margin: 0 auto;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.sticker-item {
+/* --- FILA SUPERIOR --- */
+.frespi-top-row {
     display: flex;
     justify-content: center;
+    align-items: flex-end; /* Alineados abajo */
+    gap: 15px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
-.sticker-item img {
-    max-width: 100%;
-    height: auto;
+.frespi-top-row img {
     display: block;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    height: auto;
+    /* Eliminar fondo si las imagenes JPG tienen fondo blanco/gris y tu web es oscura
+       Nota: mix-blend-mode puede ayudar si el fondo es blanco puro, 
+       sino idealmente usar PNGs transparentes. */
+    border-radius: 10px; /* Suavizar bordes si son rectangulares */
 }
 
-@media (max-width: 1024px) {
-    .frespi-products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
+/* Ajuste de tamaños proporcionales */
+.img-cone { width: 22%; }
+.img-cup  { width: 30%; }
+.img-pop-bag { width: 38%; } /* Esta es más ancha porque trae 2 cosas */
+
+
+/* --- FILA INFERIOR --- */
+.frespi-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 950px; /* Un poco más angosto que la fila de arriba */
+    margin-top: -30px; /* IMPORTANTE: Hace que suban y se agrupen */
+    position: relative;
+    z-index: 1;
 }
 
+.img-stickers {
+    width: 32%; /* Ajustar tamaño de los stickers */
+    height: auto;
+    transform: rotate(-5deg); /* Un toque de rotación orgánica */
+    margin-left: 20px;
+}
+
+.img-cards {
+    width: 38%; /* Ajustar tamaño de las tarjetas */
+    height: auto;
+    margin-right: 20px;
+    margin-top: 20px; /* Bajarlas un poquito para equilibrar */
+}
+
+
+/* ==================== RESPONSIVE (MÓVIL) ==================== */
 @media (max-width: 768px) {
-    .brand-info-layout {
+    .frespi-top-row {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .img-cone, .img-cup {
+        width: 45%; /* Dos arriba */
+    }
+
+    .img-pop-bag {
+        width: 80%; /* Uno grande abajo */
+        margin-top: 10px;
+    }
+
+    .frespi-bottom-row {
+        margin-top: 20px; /* En móvil quitamos el margen negativo */
         flex-direction: column;
-        gap: 40px;
+        align-items: center;
+        gap: 30px;
     }
 
-    .brand-main-info {
-        text-align: left;
-    }
-    
-    .brand-description-main {
-        margin-left: 0;
-    }
-
-    .brand-gallery-row-2,
-    .brand-gallery-grid-3 {
-        grid-template-columns: 1fr;
-    }
-    
-    .frespi-stickers-grid {
-        grid-template-columns: 1fr;
+    .img-stickers, .img-cards {
+        width: 70%; /* Más grandes en móvil */
+        margin: 0;
+        transform: none;
     }
 }

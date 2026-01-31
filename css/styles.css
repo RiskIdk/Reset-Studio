@@ -873,8 +873,8 @@ body {
 }
 
 .category-title {
-    
-    font-size: 48px;
+    font-family: 'SamsungOne';
+    font-size: 45px;
     font-weight: 700;
     color: var(--text-light);
     text-align: center;
@@ -943,7 +943,7 @@ body {
 
 .project-description {
     font-family: 'SamsungOne';
-    font-size: 14px;
+    font-size: 20px;
     line-height: 1.8;
     color: var(--text-light);
 }
