@@ -1,0 +1,307 @@
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
+         url('../fonts/SamsungOne-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-700.woff2') format('woff2'),
+         url('../fonts/SamsungOne-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+.hero-home {
+    padding: 50px 0 30px;
+    background: var(--navbar-bg);
+}
+
+.hero-home-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-logo-large {
+    margin-bottom: 30px;
+}
+
+.hero-logo-img {
+    height: 180px;
+    width: auto;
+}
+
+.hero-description {
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    margin-top: 40px;
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Services Home Section */
+.services-home {
+    background: var(--navbar-bg);
+    padding: 60px 0 50px;
+}
+
+.section-title-white {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.services-pills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-pills-column-left,
+.services-pills-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-pill-dropdown {
+    background: white;
+    border: 2px solid white;
+    color: var(--text-dark);
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-arrow {
+    font-size: 8px;
+    margin-left: 10px;
+}
+
+.service-pill-dropdown:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Clients Home Section */
+.clients-home {
+    background: var(--navbar-bg);
+    padding: 60px 0 50px;
+}
+
+.section-title-dark {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 35px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.client-logo img {
+    max-width: 110px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Team Preview Section */
+.team-preview {
+    background: var(--navbar-bg);
+    padding: 60px 0;
+}
+
+.team-preview-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.team-preview-logo {
+    width: 100%;
+    max-width: none;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+}
+
+.team-preview-text {
+    color: var(--text-light);
+}
+
+.team-preview-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.team-preview-description {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Footer Info Section */
+.footer-home-info {
+    background: var(--navbar-bg);
+    padding: 50px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 60px;
+    align-items: start;
+}
+
+.footer-home-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.footer-home-section p {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.footer-home-section a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.footer-home-section a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-home-social {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-home {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.social-icon-home:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-home-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-home-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-pills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-logo-img {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo-img {
+        height: 100px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+}

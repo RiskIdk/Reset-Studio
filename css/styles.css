@@ -1,0 +1,2951 @@
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
+         url('../fonts/SamsungOne-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-700.woff2') format('woff2'),
+         url('../fonts/SamsungOne-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #6B6BFF;
+    --dark-bg: #000000;
+    --navbar-bg: #0B0B2E;
+    --light-gray: #F8F8F8;
+    --medium-gray: #CCCCCC;
+    --text-dark: #000000;
+    --text-light: #FFFFFF;
+}
+
+body {
+    
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Dark body for home and project pages */
+.dark-body {
+    background: var(--navbar-bg);
+    color: var(--text-light);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.container-full {
+    max-width: 100%;
+    padding: 0;
+}
+
+.container-contact {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    background: var(--navbar-bg);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-dark {
+    background: var(--navbar-bg);
+}
+
+.navbar-light {
+    background: var(--navbar-bg);
+}
+
+/* AJUSTE: Logo y menú en las esquinas */
+.nav-container {
+    font-family: 'SamsungOne';
+    max-width: 100%;
+    margin: 0;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-blue);
+}
+
+/* ==================== BRAND SHOWCASE SECTION (NEW DESIGN) ==================== */
+.brand-showcase-section {
+    background: var(--navbar-bg);
+    padding: 60px 0;
+}
+
+/* Side by Side Layout - Client Info Left, Title/Description Right */
+.brand-info-side-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 80px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+/* Left Sidebar - Client Meta Info */
+.brand-meta-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.meta-item-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta-label-compact {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.meta-text-compact {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-light);
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Right Content - Title and Description */
+.brand-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.brand-name-large {
+
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.1;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.brand-description-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin: 0;
+    max-width: 900px;
+}
+
+/* Gallery Row - 2 columns */
+.brand-gallery-row-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+/* Gallery with Mobile Overlay */
+.brand-gallery-with-overlay {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+/* Mobile Overlay Wrapper - Positioned over last 2 images */
+.mobile-overlay-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.mobile-overlay-device {
+    max-width: 550px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(60px) scale(0.85);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-overlay-device.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.mobile-overlay-device img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
+}
+
+/* Hero Card */
+.brand-hero-card {
+    background: transparent;
+    border-radius: 40px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.brand-hero-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 40px;
+}
+
+/* Brand Info Grid - 2 columns */
+.brand-info-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 100px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+.brand-title-col {
+    position: sticky;
+    top: 100px;
+}
+
+.brand-name {
+    
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+.brand-details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.brand-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-text {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #B8B8B8;
+    margin: 0;
+}
+
+/* Gallery Grid - 4 images in 2x2 */
+.brand-gallery-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* Gallery Row - 2 columns */
+.brand-gallery-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.gallery-img-item {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.gallery-img-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Gallery Grid - 3 columns */
+.brand-gallery-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* Mobile Showcase Section - MATCHING SCREENSHOT */
+.mobile-showcase-wrapper {
+    padding: 120px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-showcase-card {
+    position: relative;
+    max-width: 650px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-device {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Frespi Hero Accent - with larger rounded corners and proper pink background */
+.frespi-hero {
+    background: #E8D5E8;
+    padding: 80px;
+    border-radius: 50px;
+}
+
+.frespi-hero img {
+    border-radius: 0;
+}
+
+
+.hero-home {
+    padding: 50px 0 30px;
+    background: var(--navbar-bg);
+}
+
+.hero-home-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-logo-large {
+    margin-bottom: 30px;
+}
+
+.hero-logo-img {
+    height: 180px;
+    width: auto;
+}
+
+.hero-description {
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    margin-top: 40px;
+}
+
+.video-placeholder {
+    background: #D9D9D9;
+    border-radius: 30px;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Video Player */
+.video-player {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Services Home Section - AJUSTE: CENTRADO */
+.services-home {
+    background: var(--navbar-bg);
+    padding: 60px 0 50px;
+}
+
+.section-title-white {
+    
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.services-pills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-pills-column-left,
+.services-pills-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-pill-dropdown {
+    background: white;
+    border: 2px solid white;
+    color: var(--text-dark);
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-arrow {
+    font-size: 8px;
+    margin-left: 10px;
+}
+
+.service-pill-dropdown:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Clients Home Section - AJUSTE: FONDO OSCURO Y CENTRADO */
+.clients-home {
+    background: var(--navbar-bg);
+    padding: 60px 0 50px;
+}
+
+.clients-home-white {
+    background: var(--navbar-bg);
+}
+
+.section-title-dark {
+    
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 35px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.clients-home-white .client-logo {
+    filter: brightness(0) invert(2);
+    opacity: 0.4;
+}
+
+.client-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.client-logo img {
+    max-width: 110px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+
+.client-logo-pops img {
+    max-width: 110px;
+    height: auto;
+    filter: brightness(0) invert(0);
+}
+
+
+
+/* Team Preview Section - AJUSTE: IMAGEN OCUPA TODO EL RECUADRO */
+.team-preview {
+    background: var(--navbar-bg);
+    padding: 60px 0;
+}
+
+.team-preview-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+
+.team-preview-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(107, 107, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.team-preview-logo {
+    width: 100%;
+    max-width: none;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+}
+
+.team-preview-text {
+    color: var(--text-light);
+}
+
+.team-preview-title {
+    
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.team-preview-description {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Footer Info agregada */
+.footer-home-info {
+    background: var(--navbar-bg);
+    padding: 50px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 60px;
+    align-items: start;
+}
+
+.footer-home-section h3 {
+    
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.footer-home-section p {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.footer-home-section a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.footer-home-section a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-home-social {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-home {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.social-icon-home:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+/* ==================== PROJECT SINGLE PAGES (BRANDING - OLD STYLE FOR COMPATIBILITY) ==================== */
+.project-hero-branding {
+    padding: 50px 0 40px;
+    background: var(--navbar-bg);
+}
+
+.project-hero-image-branding {
+    background: transparent;
+    border-radius: 30px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.project-hero-image-branding img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info-branding {
+    background: var(--navbar-bg);
+    padding: 50px 0;
+}
+
+.project-branding-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.project-title-branding {
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.project-meta-branding {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.meta-item-branding {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.meta-label-branding {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.meta-value-branding {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #B8B8B8;
+}
+
+.project-gallery-branding {
+    background: var(--navbar-bg);
+    padding: 40px 0 70px;
+}
+
+.gallery-row-branding {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.gallery-row-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-row-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-row-branding img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.gallery-phone-center {
+    text-align: center;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-phone-center img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-phone-center img.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gallery-phone-center img.hidden {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+}
+
+/* ==================== CAMPAÑAS PAGE (KIA) ==================== */
+.project-info-top {
+    background: var(--navbar-bg);
+    padding: 50px 0;
+}
+
+.project-title-side {
+
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 35px;
+}
+
+.project-meta-columns {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 50px;
+}
+
+.meta-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.meta-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.meta-value {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #B8B8B8;
+}
+
+.kia-gallery {
+    background: var(--navbar-bg);
+    padding: 30px 0;
+}
+
+.kia-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.kia-item {
+    background: #1a1a3e;
+    border-radius: 15px;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+}
+
+.kia-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================== CATEGORY PAGES (SOCIAL MEDIA, VALLAS, PACKAGING) ==================== */
+.category-hero {
+    background: var(--navbar-bg);
+    padding: 70px 0 40px;
+}
+
+.category-title {
+    
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.category-gallery {
+    background: var(--navbar-bg);
+    padding: 40px 0 70px;
+}
+
+.category-gallery-grid {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.category-item {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-item-large {
+    aspect-ratio: 16/9;
+    background: #2a2a4e;
+}
+
+.category-item-accent {
+    background: #C8FF00;
+}
+
+.category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================== PACKAGING PAGE - NEW DESIGN ==================== */
+.project-block {
+    margin-bottom: 80px;
+}
+
+.project-header-flex {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+.project-brand-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-brand-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-description-container {
+    display: flex;
+    align-items: center;
+}
+
+.project-description {
+    font-family: 'SamsungOne';
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.packaging-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.packaging-item {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.packaging-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+
+.campaign-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.campaign-info-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.campaign-logo-container {
+    margin-bottom: 10px;
+}
+
+.campaign-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.campaign-meta-item {
+    margin-bottom: 15px;
+}
+
+.campaign-meta-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.campaign-meta-value {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #B8B8B8;
+}
+
+.campaign-description {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-top: 15px;
+}
+
+.campaign-images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.campaign-image-item {
+    border-radius: 15px;
+    overflow: hidden;
+    background: #1a1a3e;
+}
+
+.campaign-image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.vallas-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.vallas-item {
+    background: #1a1a3e;
+    border-radius: 20px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.vallas-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-back-btn-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.category-back-btn {
+       font-family: 'SamsungOne';
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.category-back-btn:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.category-footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 40px;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.footer-info-block {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-cat {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon-cat:hover {
+    background: var(--primary-blue);
+}
+
+/* Comment Section */
+.comment-section {
+    background: var(--navbar-bg);
+    padding: 50px 0;
+}
+
+.comment-box {
+    background: #E8E8F8;
+    border-radius: 20px;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 600px;
+}
+
+.comment-icon {
+    font-size: 28px;
+}
+
+.comment-text {
+    color: var(--navbar-bg);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ==================== OLD STYLES (KEEPING FOR OTHER PAGES) ==================== */
+
+.hero {
+    background: var(--light-gray);
+    padding: 100px 40px 80px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+}
+
+.hero-title {
+    
+    font-size: 100px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-box {
+    background: var(--primary-blue);
+    padding: 50px 80px;
+    display: inline-block;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-text {
+    color: var(--text-light);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+
+/* Trabajo Page */
+.trabajo-hero {
+    background: var(--dark-bg);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px;
+}
+
+.trabajo-content {
+    text-align: center;
+}
+
+.trabajo-title {
+    
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: var(--text-light);
+    animation: fadeInUp 1s ease-out;
+}
+
+
+.portfolio-grid {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-title {
+    
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.grid-item {
+    aspect-ratio: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.credentials-btn-wrapper {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.credentials-btn {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    border: none;
+    padding: 15px 35px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    text-transform: lowercase;
+}
+
+.credentials-btn:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* Services Menu */
+.services-menu,
+.services-page {
+    background: var(--light-gray);
+    padding: 80px 0;
+}
+
+.section-title-services {
+    
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.services-grid-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+}
+
+.services-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.service-btn-dropdown {
+    background: transparent;
+    border: 2px solid var(--text-dark);
+    padding: 16px 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.service-btn-dropdown:hover {
+    background: var(--text-dark);
+    color: var(--text-light);
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.service-btn-dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Visual Identities / Nosotros */
+.visual-identities,
+.nosotros-page {
+    padding: 80px 0;
+    background: white;
+}
+
+.identities-box {
+    background: var(--primary-blue);
+    padding: 120px 60px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.identities-title {
+    
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-light);
+}
+
+.team-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 20px;
+    background: var(--dark-bg);
+}
+
+.team-image {
+    background: var(--medium-gray);
+    aspect-ratio: 16/11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-image-text {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.team-info {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team-title {
+
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.team-description {
+    font-size: 13px;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.team-footer {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 20px 0;
+    color: var(--text-dark);
+}
+
+/* About Hero Section (Nosotros Page) */
+.about-hero {
+    background: var(--light-gray);
+    padding: 80px 0 60px;
+}
+
+.about-title {
+    
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.about-description {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #555;
+    max-width: 700px;
+}
+
+/* AJUSTE: Team members en 4 columnas horizontales */
+.team-grid-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.team-grid-title {
+    
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+    justify-items: center;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.member-photo {
+    background: var(--medium-gray);
+    aspect-ratio: 3/4;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.member-role {
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.member-bio {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Studio Images */
+.studio-images {
+    padding: 40px 0 80px;
+    background: white;
+}
+
+.studio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.studio-img-medium {
+    aspect-ratio: 16/11;
+    background: var(--medium-gray);
+}
+
+.studio-img-large {
+    grid-column: 1 / -1;
+    aspect-ratio: 21/9;
+    background: var(--medium-gray);
+}
+
+.studio-img-medium img,
+.studio-img-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Project Detail Page */
+.project-detail {
+    padding: 80px 0;
+    background: white;
+}
+
+.project-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.project-info {
+    font-size: 13px;
+    line-height: 2;
+}
+
+.info-label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    color: #666;
+}
+
+.project-title {
+    
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.project-text {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #555;
+}
+
+/* Project Images Grid */
+.project-images {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.project-img-large {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--medium-gray);
+}
+
+.project-img-medium {
+    width: 100%;
+    aspect-ratio: 21/9;
+    background: var(--medium-gray);
+}
+
+.project-img-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.project-img-small {
+    aspect-ratio: 16/10;
+    background: var(--medium-gray);
+}
+
+/* Project Navigation */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 60px;
+}
+
+.nav-arrow {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-arrow:hover {
+    opacity: 0.6;
+}
+
+.nav-arrow span {
+    font-size: 16px;
+}
+
+/* Project Contact */
+.project-contact {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.project-contact-info {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.project-contact-email {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.project-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon-simple {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon-simple:hover {
+    background: var(--primary-blue);
+}
+
+/* Contact Section */
+.contact,
+.contact-page {
+    background: white;
+    padding: 80px 0;
+}
+
+.contact-main-title {
+    
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.contact-info-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1000px;
+}
+
+.contact-email {
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.social-icons-contact {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon-round {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon-round:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.location-title {
+    
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.location-address {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Contact Form Section (New Design) */
+.contact-form-section {
+    background: white;
+    padding: 0;
+    min-height: calc(100vh - 120px);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 180px);
+}
+
+.contact-map {
+    background: var(--medium-gray);
+    min-height: 500px;
+}
+
+.contact-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-form-container {
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-title {
+    font-family: 'SamsungOne';
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.contact-form-main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.form-field .required {
+    font-size: 11px;
+    font-weight: 400;
+    color: #999;
+}
+
+.form-field input,
+.form-field textarea {
+    padding: 12px 15px;
+    border: 1px solid #D0D0D0;
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
+    cursor: pointer;
+}
+
+.form-submit-btn {
+    background: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    padding: 14px 40px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    border-radius: 3px;
+}
+
+.form-submit-btn:hover {
+    background: #5555dd;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background: white;
+    border-top: 1px solid #E0E0E0;
+    padding: 25px 0;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left,
+.footer-right {
+    font-size: 11px;
+    color: #666;
+    font-weight: 400;
+}
+
+
+.footer-dark {
+    background: var(--navbar-bg);
+    border-top: none;
+    padding: 25px 0;
+}
+
+.footer-content-dark {
+    font-family: 'SamsungOne';
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.footer-content-dark p {
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .services-grid-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .project-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+        min-height: 300px;
+    }
+
+    .footer-content-dark {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .footer-social-dark {
+        justify-content: center;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kia-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-branding-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-home-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-home-social {
+        justify-content: center;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-header-flex {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .packaging-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campaign-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .campaign-images-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* New Brand Showcase Responsive */
+    .brand-info-side-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .brand-name-large {
+        font-size: 48px;
+    }
+
+    .brand-info-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .brand-title-col {
+        position: static;
+    }
+
+    .brand-gallery-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-gallery-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-gallery-row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-showcase-inline {
+        max-width: 500px;
+    }
+
+    .mobile-device-inline {
+        max-width: 480px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 450px;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 60px;
+        letter-spacing: 4px;
+    }
+
+    .trabajo-title {
+        font-size: 50px;
+    }
+    
+    .hero-box {
+        padding: 40px 30px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .team-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        gap: 25px;
+    }
+    
+    .nav-menu a {
+        font-family: 'SamsungOne';
+        font-size: 11px;
+    }
+    
+    .identities-box {
+        padding: 80px 40px;
+    }
+    
+    .identities-title {
+        font-size: 32px;
+    }
+
+    .project-title {
+        font-size: 32px;
+    }
+
+    .project-img-row {
+        grid-template-columns: 1fr;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .about-title {
+        font-size: 28px;
+    }
+
+    .studio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-pills {
+        max-width: 100%;
+    }
+
+    .services-pills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .vallas-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-footer-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-social-icons {
+        justify-content: center;
+    }
+
+    .gallery-row-2,
+    .gallery-row-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .project-title-branding {
+        font-size: 38px;
+    }
+
+    .project-header-flex {
+        grid-template-columns: 1fr;
+    }
+
+    /* New Brand Showcase Responsive */
+    .brand-info-side-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .brand-name-large {
+        font-size: 42px;
+    }
+
+    .brand-name {
+        font-size: 42px;
+    }
+
+    .brand-gallery-row {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-gallery-row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-gallery-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-gallery-grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-showcase-card {
+        max-width: 500px;
+    }
+
+    .mobile-device {
+        max-width: 450px;
+    }
+
+    .mobile-showcase-inline {
+        max-width: 400px;
+    }
+
+    .mobile-device-inline {
+        max-width: 380px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 380px;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 60px;
+    }
+
+    .frespi-hero {
+        padding: 50px;
+    }
+}
+
+/* ==================== ESTILOS PARA AGREGAR A TU CSS EXISTENTE ==================== */
+/* Copia y pega estos estilos AL FINAL de tu archivo styles.css */
+
+/* ==================== BRANDING PAGE - HERO IMAGE ==================== */
+.brand-hero-image-wrapper {
+    margin-bottom: 50px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.brand-hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==================== BRANDING PAGE - INFO LAYOUT ==================== */
+/* Layout de 2 columnas: Cliente (izquierda) + Título/Descripción (derecha) */
+.brand-info-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+    align-items: start;
+}
+
+/* Columna Izquierda - Info del Cliente */
+.brand-client-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.client-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.client-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.3px;
+}
+
+.client-value {
+    font-size: 13px;
+    color: var(--text-light);
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Columna Derecha - Título y Descripción */
+.brand-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand-title-main {
+    
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.brand-description-main {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin: 0;
+    max-width: 800px;
+}
+
+/* ==================== MOBILE OVERLAY - CELULAR SOBREPUESTO ==================== */
+.brand-gallery-with-overlay {
+    position: relative;
+    margin-bottom: 120px;
+}
+
+.mobile-overlay-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.mobile-overlay-device {
+    max-width: 450px;
+    width: 90%;
+    opacity: 0;
+    transform: translateY(80px) scale(0.85);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-overlay-device.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.mobile-overlay-device img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.7));
+}
+
+/* ==================== VALLAS PUBLICITARIAS PAGE ==================== */
+.vallas-hero {
+    background: var(--navbar-bg);
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.vallas-title {
+    font-family: 'SamsungOne';
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.2;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.vallas-gallery-section {
+    background: var(--navbar-bg);
+    padding: 40px 0 80px;
+}
+
+/* Grid 4x2 (4 filas x 2 columnas) */
+.vallas-grid-4x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.valla-item {
+    border-radius: 15px;
+    overflow: hidden;
+    background: #1a1a3e;
+    aspect-ratio: 16/9;
+}
+
+.valla-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Botón de regresar */
+.vallas-back-button-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.vallas-back-button {
+    font-family: 'SamsungOne';
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.vallas-back-button:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.vallas-back-button span {
+    font-size: 16px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .brand-info-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .brand-title-main {
+        font-size: 42px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 400px;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 100px;
+    }
+
+    .vallas-title {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-info-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .brand-title-main {
+        font-size: 36px;
+    }
+
+    .brand-description-main {
+        font-size: 13px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 350px;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 80px;
+    }
+
+    .vallas-title {
+        font-size: 36px;
+    }
+
+    .vallas-grid-4x2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== ESTILOS COMPLETOS PARA AGREGAR A TU CSS ==================== */
+/* Copia y pega estos estilos AL FINAL de tu archivo styles.css */
+
+/* ==================== BRANDING PAGE - HERO IMAGE ==================== */
+.brand-hero-image-wrapper {
+    margin-bottom: 50px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.brand-hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==================== BRANDING PAGE - INFO LAYOUT ==================== */
+/* Layout de 2 columnas: Cliente (izquierda) + Título/Descripción (derecha) */
+.brand-info-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+    align-items: start;
+}
+
+/* Columna Izquierda - Info del Cliente */
+.brand-client-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.client-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.client-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.3px;
+}
+
+.client-value {
+    font-size: 13px;
+    color: var(--text-light);
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Columna Derecha - Título y Descripción */
+.brand-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand-title-main {
+
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.brand-description-main {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin: 0;
+    max-width: 800px;
+}
+
+/* ==================== MOBILE OVERLAY - CELULAR SOBREPUESTO ==================== */
+.brand-gallery-with-overlay {
+    position: relative;
+    margin-bottom: 120px;
+}
+
+.mobile-overlay-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.mobile-overlay-device {
+    max-width: 450px;
+    width: 90%;
+    opacity: 0;
+    transform: translateY(80px) scale(0.85);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-overlay-device.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.mobile-overlay-device img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.7));
+}
+
+/* ==================== VALLAS PUBLICITARIAS PAGE (CORREGIDO) ==================== */
+.vallas-hero {
+    background: var(--navbar-bg);
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.vallas-title {
+    
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.2;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.vallas-gallery-section {
+    background: var(--navbar-bg);
+    padding: 40px 0 80px;
+}
+
+/* Grid 4x2 (4 filas x 2 columnas) */
+.vallas-grid-4x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.valla-item {
+    border-radius: 15px;
+    overflow: hidden;
+    background: transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* EFECTO HOVER - Sombra y elevación como en la foto */
+.valla-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.valla-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 15px;
+}
+
+/* Botón de regresar */
+.vallas-back-button-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.vallas-back-button {
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.vallas-back-button:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.vallas-back-button span {
+    font-size: 16px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .brand-info-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .brand-title-main {
+        font-size: 42px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 400px;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 100px;
+    }
+
+    .vallas-title {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-info-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .brand-title-main {
+        font-size: 36px;
+    }
+
+    .brand-description-main {
+        font-size: 13px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 350px;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 80px;
+    }
+
+    .vallas-title {
+        font-size: 36px;
+    }
+
+    .vallas-grid-4x2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .valla-item:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-title-main {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .brand-description-main {
+        font-size: 12px;
+    }
+
+    /* Mobile overlay on small screens - becomes relative positioned */
+    .mobile-overlay-wrapper {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .mobile-overlay-device {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .brand-gallery-with-overlay {
+        margin-bottom: 60px;
+    }
+
+    .vallas-title {
+        font-size: 28px;
+    }
+
+    .vallas-back-button {
+        padding: 12px 25px;
+        font-size: 11px;
+    }
+/* ==================== LIGHTBOX PARA VALLAS ==================== */
+/* Agregar estos estilos a tu CSS */
+
+/* Overlay oscuro de fondo */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 46, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container del lightbox */
+.lightbox-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wrapper de la imagen */
+.lightbox-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 80px;
+}
+
+.lightbox-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lightbox-image-wrapper img.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Botón cerrar */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transform: rotate(90deg);
+}
+
+/* Botones de navegación */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Contador de imágenes */
+.lightbox-counter {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Cursor en vallas */
+.valla-item {
+    cursor: zoom-in;
+}
+
+/* ==================== RESPONSIVE LIGHTBOX ==================== */
+@media (max-width: 768px) {
+    .lightbox-image-wrapper {
+        padding: 0 60px;
+    }
+
+    .lightbox-nav {
+        width: 50px;
+        height: 50px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-close {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .lightbox-counter {
+        bottom: 20px;
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-image-wrapper {
+        padding: 0 50px;
+    }
+
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-nav svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .lightbox-close {
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .lightbox-close svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+}

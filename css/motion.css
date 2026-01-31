@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
+         url('../fonts/SamsungOne-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-700.woff2') format('woff2'),
+         url('../fonts/SamsungOne-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+.dark-body {
+    background-color: #050517; /* Azul muy oscuro profundo */
+    color: #FFFFFF;
+}
+
+/* ==================== HERO SECTION ==================== */
+.motion-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.motion-title {
+    font-family: 'Montserrat', sans-serif; /* O Libre Baskerville según prefieras */
+    font-size: 42px; /* Tamaño grande */
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ==================== VIDEO GRID & LAYOUT ==================== */
+.motion-gallery-section {
+    padding: 20px 0 100px;
+}
+
+.motion-video-grid {
+    display: flex;
+    flex-direction: column; /* Apilados verticalmente como en la foto */
+    gap: 40px; /* Espacio generoso entre cada video */
+    max-width: 900px; /* Ancho máximo para que no se estiren demasiado en pantallas grandes */
+    margin: 0 auto; /* Centrado en la pantalla */
+}
+
+/* Contenedor de cada item (Video + Info) */
+.motion-video-item {
+    width: 100%;
+    opacity: 1; /* Asegurar visibilidad */
+}
+
+/* El recuadro del video (Estilo "Caja Gris" de la foto) */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Aspect Ratio 16:9 (Formato video estándar) */
+    background-color: #D9D9D9; /* El color gris del diseño */
+    border-radius: 30px; /* Bordes MUY redondeados como en la referencia */
+    overflow: hidden; /* Recorta el video para respetar los bordes redondos */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Sombra suave para dar profundidad */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: scale(1.02); /* Pequeño efecto zoom al pasar el mouse */
+}
+
+/* Estilos para la etiqueta video HTML5 */
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el recuadro */
+    border-radius: 30px;
+    outline: none;
+}
+
+/* Placeholder (Lo que se ve si el video no carga o antes de dar play) */
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    pointer-events: none; /* Permite dar click al video a través del placeholder */
+}
+
+/* Opcional: Ocultar placeholder si el video está encima (depende de tu JS, 
+   pero por CSS puro el video suele taparlo si tiene poster o carga rápido) */
+
+.play-button svg {
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover .play-button svg {
+    transform: scale(1.1);
+}
+
+.video-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    margin-top: 10px;
+    display: none; /* Oculto para que se vea limpio como la foto, quita esta línea si quieres ver el texto "VIDEO PLACEHOLDER" */
+}
+
+/* ==================== INFORMACIÓN DEL VIDEO (Debajo del recuadro) ==================== */
+.video-info {
+    padding: 0 15px;
+    text-align: left; /* O center, según prefieras */
+}
+
+.video-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.video-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #CCCCCC;
+    font-weight: 300;
+}
+
+/* ==================== BOTÓN REGRESAR ==================== */
+.motion-back-btn-wrapper {
+    text-align: center;
+    margin: 60px 0 80px;
+}
+
+.motion-back-btn {
+    background: transparent;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.motion-back-btn:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* ==================== FOOTER INFO (Específico Motion) ==================== */
+.motion-footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 50px;
+    align-items: start;
+}
+
+.footer-info-block p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .motion-title {
+        font-size: 32px;
+    }
+    
+    .motion-video-grid {
+        gap: 30px;
+    }
+
+    .video-wrapper {
+        border-radius: 20px; /* Un poco menos redondeado en móvil para ganar espacio */
+    }
+
+    .motion-footer-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-social-icons {
+        justify-content: center;
+    }
+}

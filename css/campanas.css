@@ -1,0 +1,240 @@
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CAMPAÑAS
+   Archivo: css/campanas.css
+   ========================================================================== */
+
+.category-gallery {
+    padding: 60px 0 100px;
+}
+
+/* --- Estructura Principal --- */
+.campaign-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 120px;
+    padding-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.campaign-layout:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* --- Columna Izquierda: Información y Texto --- */
+.campaign-info-sidebar {
+    flex-basis: 35%;
+    max-width: 35%;
+    padding-right: 40px;
+    /* Alineación a la derecha para coincidir con la referencia */
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.campaign-logo-container {
+    margin-bottom: 20px;
+}
+
+.campaign-logo {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin-left: auto; /* Alinea el logo a la derecha */
+}
+
+/* Filtro para volver el logo de CMF blanco puro */
+.logo-white-filter {
+    filter: brightness(0) invert(1);
+}
+
+/* Título grande de la marca (KIA, MAGGI, etc) */
+.campaign-brand-title {
+    color: var(--text-light);
+    font-family: 'SamsungOne', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+/* Metadatos (Cliente, Año, etc) */
+.campaign-meta-item {
+    display: flex;
+    /* Invertimos el orden visual para que la etiqueta quede a la derecha */
+    flex-direction: row-reverse; 
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-light);
+}
+
+.campaign-meta-label {
+    color: var(--text-light); /* Etiqueta en blanco */
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 8px; /* Espacio entre el valor y la etiqueta */
+}
+
+.campaign-meta-value {
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.campaign-description {
+    margin-top: 30px;
+    color: var(--text-light);
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 95%;
+}
+
+/* --- Columna Derecha: Imágenes --- */
+.campaign-images-grid {
+    flex-basis: 60%;
+    max-width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Espacio entre fotos */
+    align-content: start;
+}
+
+.campaign-image-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-image-item img {
+    width: 100%;
+    /* height: auto asegura que se vea la foto completa sin recortar */
+    height: auto; 
+    display: block;
+    transition: transform 0.5s ease;
+    border-radius: 2px;
+}
+
+.campaign-image-item:hover img {
+    transform: translateY(-5px);
+}
+
+/* --- Footer y Botones --- */
+.category-back-btn-wrapper {
+    text-align: center;
+    margin: 80px 0 50px;
+}
+
+.category-back-btn {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 15px 30px;
+    border: 2px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.category-back-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.category-footer-info {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-info-block p, .social-icon-cat {
+    color: #999;
+    font-size: 12px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon-cat:hover {
+    color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    .campaign-layout {
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+
+    .campaign-info-sidebar,
+    .campaign-images-grid {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .campaign-info-sidebar {
+        margin-bottom: 40px;
+        /* En móvil alineamos a la izquierda para leer mejor */
+        text-align: left; 
+        align-items: flex-start;
+    }
+
+    .campaign-logo {
+        margin-left: 0;
+    }
+
+    .campaign-meta-item {
+        flex-direction: row; /* Orden normal: Etiqueta - Valor */
+    }
+
+    .campaign-meta-label {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    .campaign-description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-gallery {
+        padding-top: 30px;
+    }
+
+    .campaign-brand-title {
+        font-size: 26px;
+    }
+
+    .campaign-images-grid {
+        gap: 15px;
+    }
+    
+    .category-footer-info {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}

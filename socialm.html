@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media - Reset Studio</title>
+    
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/category.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-body">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo/Reset_studio_blanco.png" alt="Reset Studio" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="servicios.html">SERVICIOS</a></li>
+                <li><a href="trabajo.html" class="active">PROYECTOS</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <h1 class="category-title">SOCIAL MEDIA</h1>
+        </div>
+    </section>
+
+    <!-- Category Gallery -->
+    <section class="category-gallery">
+        <div class="container">
+            <div class="category-gallery-grid" data-scroll-reveal>
+                <div class="category-item category-item-large">
+                    <img src="img/social/1.jpeg" alt="Social Media 1">
+                </div>
+                <div class="category-item category-item-large category-item-accent">
+                    <img src="img/social/2.jpeg" alt="Lucky Day">
+                </div>
+            </div>
+            
+            <div class="category-back-btn-wrapper">
+                <a href="trabajo.html" class="category-back-btn">
+                    <span>←</span> REGRESAR A MÁS PROYECTOS
+                </a>
+            </div>
+
+            <div class="category-footer-info">
+                <div class="footer-info-left">
+                    <p>Av. Francisco de Orellana 256 y</p>
+                    <p>Pedro Carbo</p>
+                </div>
+                <div class="footer-info-right">
+                    <p>resetstudioec@gmail.com</p>
+                    <p>Telf: 0988451755</p>
+                </div>
+                <div class="footer-social-icons">
+                    <a href="#" class="social-icon-cat">IG</a>
+                    <a href="#" class="social-icon-cat">IN</a>
+                    <a href="#" class="social-icon-cat">FB</a>
+                    <a href="#" class="social-icon-cat">YT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer footer-dark">
+        <div class="footer-content-dark">
+            <p>Reset Studio ©2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
+            });
+
+            // Observar elementos
+            document.querySelectorAll('.category-item, [data-scroll-reveal]').forEach(el => {
+                scrollObserver.observe(el);
+            });
+
+        
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+
+            
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 50) {
+                    navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                } else {
+                    navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                }
+            });
+
+            console.log('✅ Social Media - Página cargada');
+        });
+    </script>
+</body>
+</html>

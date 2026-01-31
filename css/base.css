@@ -1,0 +1,202 @@
+/* ==================== BASE.CSS - ESTILOS COMPARTIDOS ==================== */
+
+/* Declaración de la fuente SamsungOne */
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
+         url('../fonts/SamsungOne-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-700.woff2') format('woff2'),
+         url('../fonts/SamsungOne-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #6B6BFF;
+    --dark-bg: #000000;
+    --navbar-bg: #0B0B2E;
+    --light-gray: #F8F8F8;
+    --medium-gray: #CCCCCC;
+    --text-dark: #000000;
+    --text-light: #FFFFFF;
+}
+
+body {
+    font-family: 'SamsungOne', sans-serif; /* Cambio aplicado aquí */
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.dark-body {
+    background: var(--navbar-bg);
+    color: var(--text-light);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    background: var(--navbar-bg);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-blue);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: white;
+    border-top: 1px solid #E0E0E0;
+    padding: 25px 0;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left,
+.footer-right {
+    font-size: 11px;
+    color: #666;
+    font-weight: 400;
+}
+
+.footer-dark {
+    background: var(--navbar-bg);
+    border-top: none;
+    padding: 25px 0;
+}
+
+.footer-content-dark {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.footer-content-dark p {
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+.gallery-img-item,
+.valla-item,
+.category-item {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-img-item.visible,
+.valla-item.visible,
+.category-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .nav-menu {
+        gap: 25px;
+    }
+    
+    .nav-menu a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container,
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .nav-menu {
+        gap: 15px;
+        font-size: 10px;
+    }
+}

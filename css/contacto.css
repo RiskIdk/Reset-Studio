@@ -1,0 +1,187 @@
+/* ==================== CONTACTO.CSS (ESTILO LIGHT) ==================== */
+
+/* Aseguramos la fuente SamsungOne */
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
+         url('../fonts/SamsungOne-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-700.woff2') format('woff2'),
+         url('../fonts/SamsungOne-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Forzar fondo blanco y texto oscuro para esta página */
+body {
+    background-color: #FFFFFF !important;
+    color: #1A1A1A !important;
+}
+
+/* ==================== LAYOUT PRINCIPAL ==================== */
+.contact-section {
+    padding: 60px 0 100px;
+    max-width: 1100px; /* Ancho contenido para que se parezca a la foto */
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 450px 1fr; /* Columna izq fija o proporcional, der flexible */
+    gap: 80px;
+    align-items: start;
+}
+
+/* Columna Izquierda: El recuadro gris (o mapa/foto) */
+.contact-visual-box {
+    background-color: #D9D9D9; /* Gris de la referencia */
+    width: 100%;
+    height: 700px; /* Altura fija para igualar al formulario largo */
+    /* Si pones una imagen, usa estas propiedades: */
+    /* background-image: url('../img/tu-foto.jpg'); */
+    /* background-size: cover; */
+}
+
+.contact-visual-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Si usas etiqueta img */
+    opacity: 0; /* Si quieres que sea solo gris, quita la img o deja esto */
+}
+
+/* ==================== FORMULARIO ==================== */
+.contact-form-wrapper {
+    padding-top: 0;
+}
+
+.form-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 38px;
+    color: #1a1a3e; /* Azul oscuro casi negro */
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Libre Baskerville', serif; /* En la foto parece serif o una slab ligera */
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+}
+
+.label-optional {
+    font-family: 'SamsungOne', sans-serif; /* La parte "(obligatorio)" parece sans */
+    font-size: 12px;
+    color: #999;
+    margin-left: 5px;
+}
+
+/* Estilo de los Inputs (Cajas blancas con borde gris suave) */
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px; /* Bordes redondeados suaves */
+    font-family: 'SamsungOne', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #FFFFFF;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+/* Checkbox */
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.form-checkbox input {
+    accent-color: #333;
+    width: 16px;
+    height: 16px;
+}
+
+.form-checkbox label {
+    font-family: 'Courier New', monospace; /* Tipo "máquina de escribir" de la foto */
+    font-size: 11px;
+    color: #666;
+    letter-spacing: -0.5px;
+}
+
+/* Botón Enviar (Estilo pastilla blanca con borde azul) */
+.btn-submit {
+    display: inline-block;
+    width: fit-content;
+    padding: 12px 45px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 50px; /* Forma de pastilla */
+    color: var(--primary-blue);
+    font-family: 'SamsungOne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.btn-submit:hover {
+    border-color: var(--primary-blue);
+    background-color: var(--primary-blue);
+    color: #FFFFFF;
+}
+
+/* Placeholder styling para que se vea como en la foto */
+::placeholder {
+    color: #CCCCCC;
+    font-size: 12px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-visual-box {
+        height: 300px;
+        order: -1; /* Poner arriba en móvil si quieres, o quitar para dejar abajo */
+    }
+    
+    .container {
+        padding: 0 25px;
+    }
+}

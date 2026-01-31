@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Reset Studio</title>
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar navbar-light">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo/Reset_studio_blanco.png" alt="Reset Studio" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="servicios.html">SERVICIOS</a></li>
+                <li><a href="trabajo.html">PROYECTOS</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
+                <li><a href="contacto.html" class="active">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <div class="contact-visual-box">
+                    </div>
+
+                <div class="contact-form-wrapper">
+                    <h1 class="form-title">Escríbenos</h1>
+                    
+                    <form class="contact-form">
+                        
+                        <div class="form-group">
+                            <label>Nombre y Apellido <span class="label-optional">(obligatorio)</span></label>
+                            <input type="text" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>E-mail <span class="label-optional">(obligatorio)</span></label>
+                            <input type="email" name="email" required>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="newsletter">
+                            <label for="newsletter">Regístrate para recibir noticias y actualizaciones</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mensaje</label>
+                            <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Teléfono/Celular <span class="label-optional">(obligatorio)</span></label>
+                            <input type="tel" name="telefono" required>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer footer-dark">
+        <div class="footer-content-dark" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+            
+            <div style="flex: 1;">
+                <p>av. Francisco de Orellana 156 y<br>Pedro Carbo</p>
+            </div>
+            
+            <div style="flex: 1;">
+                <p>resetstudioec@gmail.com<br>Telf: 0988451755</p>
+            </div>
+
+            <div class="footer-social-icons">
+                <a href="#" class="social-icon-cat">IG</a>
+                <a href="#" class="social-icon-cat">IN</a>
+                <a href="#" class="social-icon-cat">FB</a>
+                <a href="#" class="social-icon-cat">YT</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* CATEGORY.CSS - PARA SOCIAL MEDIA, VALLAS (SIN LIGHTBOX) */
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-400.woff2') format('woff2'),
+         url('../fonts/SamsungOne-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url('../fonts/SamsungOne-700.woff2') format('woff2'),
+         url('../fonts/SamsungOne-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+.category-hero {
+    background: var(--navbar-bg);
+    padding: 70px 0 40px;
+}
+
+.category-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.category-gallery {
+    background: var(--navbar-bg);
+    padding: 40px 0 70px;
+}
+
+.category-gallery-grid {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.category-item {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-item-large {
+    aspect-ratio: 16/9;
+    background: #2a2a4e;
+}
+
+.category-item-accent {
+    background: #C8FF00;
+}
+
+.category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-back-btn-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.category-back-btn {
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.category-back-btn:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.category-footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 40px;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.footer-info-block,
+.footer-info-left,
+.footer-info-right {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-cat {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon-cat:hover {
+    background: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 36px;
+    }
+    .category-footer-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+    .footer-social-icons {
+        justify-content: center;
+    }
+}
