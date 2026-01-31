@@ -144,10 +144,10 @@
     text-align: left;
 }
 
-/* ==================== BANNER AZUL ==================== */
+
 .cta-banner {
-    /* Color azul vibrante ajustado a tu imagen */
-    background-color: #5C62FF; 
+    
+    background-color: #2e27F3; 
     padding: 100px 0;
     text-align: center;
     color: #FFFFFF;
@@ -184,7 +184,7 @@
     font-size: 12px;
 }
 
-/* ==================== RESPONSIVE ==================== */
+
 @media (max-width: 1024px) {
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
