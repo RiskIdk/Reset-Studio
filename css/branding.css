@@ -50,6 +50,7 @@
     flex-direction: column;
     gap: 25px;
     min-width: 200px;
+    flex-shrink: 0;
 }
 
 .client-info-item {
@@ -110,13 +111,14 @@
     gap: 25px;
     align-items: center; 
     margin-bottom: 25px;
-    position: relative; /* Importante para el z-index */
+    position: relative;
 }
 
 .gallery-img-item {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
 
 .gallery-img-item img {
@@ -125,20 +127,19 @@
     object-fit: cover;
     display: block;
 }
+
 .mobile-center-position {
     grid-column: 2; 
     position: relative;
-    z-index: 10; /* Encima de todo */
+    z-index: 10;
 }
 
-/* Ajustes visuales para el celular */
 .mobile-item {
-    overflow: visible !important; /* Permite que se salga de la caja */
+    overflow: visible !important;
     display: flex;
     justify-content: center;
     align-items: center;
     background: transparent;
-    /* Un poco de margen negativo arriba para que "suba" y se superponga a las fotos de arriba */
     margin-top: -30px; 
 }
 
@@ -146,40 +147,25 @@
     width: 100%;
     height: auto;
     object-fit: contain; 
-    
-    transform: scale(2.0); 
-
+    transform: scale(1.8); 
     filter: drop-shadow(0 25px 50px rgba(0,0,0,0.5));
-    transition: transform 0.3s ease; /* Transición solo para el hover */
+    transition: transform 0.3s ease;
 }
 
 .mobile-item img:hover {
-    transform: scale(2.05); 
+    transform: scale(1.85); 
 }
 
-
-
-.scroll-fade-up {
-    opacity: 0;
-    transform: translateY(100px); 
-    
-    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.scroll-fade-up.appear {
-    opacity: 1;
-    transform: translateY(0); 
-}
-
-
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
 .frespi-hero {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
     background-color: #EADAEB;
     border-radius: 40px;
     width: 100%;
     margin-bottom: 80px;
-    padding: 0; 
+    padding: 60px 20px; 
     overflow: hidden; 
     display: flex;
     justify-content: center;
@@ -187,11 +173,10 @@
 }
 
 .frespi-hero img {
-    
     width: 100%;
-    max-width: 100%;
+    max-width: 500px;
     height: auto;
-    display: block; 
+    
 }
 
 .frespi-collage-container {
@@ -204,11 +189,10 @@
     align-items: center;
 }
 
-/* --- FILA SUPERIOR --- */
 .frespi-top-row {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alineados abajo */
+    align-items: flex-end;
     gap: 15px;
     width: 100%;
     position: relative;
@@ -218,69 +202,115 @@
 .frespi-top-row img {
     display: block;
     height: auto;
-    /* Eliminar fondo si las imagenes JPG tienen fondo blanco/gris y tu web es oscura
-       Nota: mix-blend-mode puede ayudar si el fondo es blanco puro, 
-       sino idealmente usar PNGs transparentes. */
-    border-radius: 10px; /* Suavizar bordes si son rectangulares */
+    border-radius: 10px;
 }
 
-/* Ajuste de tamaños proporcionales */
 .img-cone { width: 22%; }
 .img-cup  { width: 30%; }
-.img-pop-bag { width: 38%; } /* Esta es más ancha porque trae 2 cosas */
+.img-pop-bag { width: 38%; }
 
-
-/* --- FILA INFERIOR --- */
 .frespi-bottom-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 950px; /* Un poco más angosto que la fila de arriba */
-    margin-top: -30px; /* IMPORTANTE: Hace que suban y se agrupen */
+    max-width: 950px;
+    margin-top: -30px;
     position: relative;
     z-index: 1;
 }
 
 .img-stickers {
-    width: 32%; /* Ajustar tamaño de los stickers */
+    width: 32%;
     height: auto;
-    transform: rotate(-5deg); /* Un toque de rotación orgánica */
+    transform: rotate(-5deg);
     margin-left: 20px;
 }
 
 .img-cards {
-    width: 38%; /* Ajustar tamaño de las tarjetas */
+    width: 38%;
     height: auto;
     margin-right: 20px;
-    margin-top: 20px; /* Bajarlas un poquito para equilibrar */
+    margin-top: 20px;
 }
 
+@media (max-width: 900px) {
+    .brand-info-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
 
-/* ==================== RESPONSIVE (MÓVIL) ==================== */
+    .brand-main-info {
+        text-align: left;
+    }
+
+    .brand-description-main {
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 768px) {
+    .brand-hero-image-wrapper {
+        border-radius: 20px;
+        margin-bottom: 50px;
+    }
+
+    .brand-title-main {
+        font-size: 32px;
+    }
+
+    .brand-gallery-row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-gallery-grid-3 {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-center-position {
+        grid-column: auto;
+        order: -1; 
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .mobile-item {
+        margin-top: 0;
+    }
+
+    .mobile-item img {
+        transform: none;
+        max-width: 250px;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    }
+    
+    .mobile-item img:hover {
+        transform: none;
+    }
+
     .frespi-top-row {
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
-    .img-cone, .img-cup {
-        width: 45%; /* Dos arriba */
-    }
-
-    .img-pop-bag {
-        width: 80%; /* Uno grande abajo */
-        margin-top: 10px;
+    .img-cone, .img-cup, .img-pop-bag {
+        width: 80%;
+        max-width: 300px;
     }
 
     .frespi-bottom-row {
-        margin-top: 20px; /* En móvil quitamos el margen negativo */
+        margin-top: 30px;
         flex-direction: column;
         align-items: center;
         gap: 30px;
     }
 
     .img-stickers, .img-cards {
-        width: 70%; /* Más grandes en móvil */
+        width: 70%;
+        max-width: 250px;
         margin: 0;
         transform: none;
     }

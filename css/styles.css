@@ -1090,6 +1090,7 @@ body {
 }
 
 .footer-info-block {
+    font-family: 'SamsungOne';
     font-size: 12px;
     color: var(--text-light);
 }
